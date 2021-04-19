@@ -36,7 +36,7 @@ public class RequestSearchDTO {
                 && this.q == null) {
             return "";
         }
-        String q = "where ";
+        String q = " where ";
         if (this.isSeeker != null) {
                 q = " is_seeker = " + this.isSeeker + " and";
         }
@@ -49,6 +49,10 @@ public class RequestSearchDTO {
         if(this.requestType != null){
             q = " request_type " + this.requestType + " and";
         }
-       return q;
+        if(this.q != null){
+            q = "( name like '%" +this.q +"%' or phone like '%" + this.q +
+                    "%' + address like '%" + this.q + "%' and";
+        }
+       return q.substring(0,q.length()-4);
     }
 }
