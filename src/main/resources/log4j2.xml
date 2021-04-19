@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+
+
+    <Appenders>
+        <RollingFile name="FILE" fileName="${logPath}/curatedList.log"
+                     filePattern="${logPath}/$${date:yyyy-MM}/curatedList-%d{MM-dd-yyyy}-%i" >
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %c{1}:%L --%X{guid}- %m#]%n</Pattern>
+            </PatternLayout>
+            <ThresholdFilter level="INFO"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="1000"/>
+        </RollingFile>
+
+    </Appenders>
+
+
+    <Loggers>
+
+        <Root level="INFO">
+            <AppenderRef ref="FILE"/>
+        </Root>
+    </Loggers>
+
+</Configuration>
