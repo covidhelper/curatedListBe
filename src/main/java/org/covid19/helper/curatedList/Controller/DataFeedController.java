@@ -107,5 +107,10 @@ public class DataFeedController {
         return status? new ResultDTO(): new ResultDTO("City Already Added",400);
     }
 
+    @RequestMapping(value ="/structured/{uuid}" , method = RequestMethod.DELETE)
+    public ResultDTO deleteData(@PathVariable String uuid){
+        return dataFacade.deleteData(uuid)?new ResultDTO(): new
+                ResultDTO("Not deleted", 400);
+    }
 
 }

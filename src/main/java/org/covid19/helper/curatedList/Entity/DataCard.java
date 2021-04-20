@@ -60,6 +60,8 @@ public class DataCard {
 
     private Double denomCount = 0.0;
 
+    private Date createdDate;
+
     @Enumerated(EnumType.STRING)
     private ApplicationConstants.DataCardAction action;
 

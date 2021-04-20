@@ -147,6 +147,7 @@ public class DataFacade {
             dumpDataCard.setPhone(contactDTO.getPhone());
             dumpDataCard.setUuid(ApplicationUtil.entityUuidGenerator());
             dumpDataCard.setUid();
+            dumpDataCard.setCreatedDate(new Date());
             dataService.saveDataCard(dumpDataCard);
             dataCards.add(dumpDataCard);
         }
@@ -194,7 +195,17 @@ public class DataFacade {
             saveCity(dataCard.getNewCity());
             dataCard.setCity(dataCard.getNewCity());
         }
+    }
 
+    public Boolean deleteData(String uuid){
+       DataCard dataCard =  dataService.getDataCardByUuid(uuid);
+       if(dataCard.getCreatedDate() != null){
+           if(System.currentTimeMillis() - dataCard.getCreatedDate().getTime() < 15*100*100){
+                return dataService.deleteCard(dataCard);
+           }
+           return Boolean.FALSE;
+       }
+       return Boolean.FALSE;
     }
 
 

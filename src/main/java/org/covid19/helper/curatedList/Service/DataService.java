@@ -68,6 +68,15 @@ public class DataService {
         return dataCardRepository.findAllByOrderByRatingDesc();
     }
 
+    public Boolean deleteCard(DataCard dataCard){
+        try {
+            dataCardRepository.delete(dataCard);
+        }catch (Exception ex){
+            return Boolean.FALSE;
+        }
+        return Boolean.TRUE;
+    }
+
 
 
     public void saveDataCardEvents(DataCardEvent dataCardEvent) {
