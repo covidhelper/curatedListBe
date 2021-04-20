@@ -28,7 +28,7 @@ public class ApplicationConstants {
     public static final String CITY = "city";
 
     public static enum RequestType {
-        PLASMA,OXYGEN,ICU,VENTILATOR,BED,REMDESIVIR,DR,TIFFIN,HOME_CARE,TOCILIZUMAB;
+        PLASMA,OXYGEN,ICU,VENTILATOR,BED,REMDESIVIR,DR,TIFFIN,HOME_CARE,TOCILIZUMAB,FABIFLU;
     }
 
     public static enum EventType{
