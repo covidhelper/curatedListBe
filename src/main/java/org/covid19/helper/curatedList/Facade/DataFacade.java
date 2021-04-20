@@ -200,7 +200,7 @@ public class DataFacade {
     public Boolean deleteData(String uuid){
        DataCard dataCard =  dataService.getDataCardByUuid(uuid);
        if(dataCard.getCreatedDate() != null){
-           if(System.currentTimeMillis() - dataCard.getCreatedDate().getTime() < 15*100*100){
+           if(System.currentTimeMillis() - dataCard.getCreatedDate().getTime() < 15*60*1000){
                 return dataService.deleteCard(dataCard);
            }
            return Boolean.FALSE;
