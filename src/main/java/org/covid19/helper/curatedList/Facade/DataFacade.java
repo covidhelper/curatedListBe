@@ -5,10 +5,7 @@ import java.util.*;
 import org.apache.commons.io.FilenameUtils;
 import org.covid19.helper.curatedList.Constants.ApplicationConstants;
 import org.covid19.helper.curatedList.DTO.*;
-import org.covid19.helper.curatedList.Entity.DataCard;
-import org.covid19.helper.curatedList.Entity.DataCardEvent;
-import org.covid19.helper.curatedList.Entity.UnstructuredData;
-import org.covid19.helper.curatedList.Entity.UserCookie;
+import org.covid19.helper.curatedList.Entity.*;
 import org.covid19.helper.curatedList.Service.DataService;
 import org.covid19.helper.curatedList.Util.ApplicationUtil;
 import org.dozer.Mapper;
@@ -181,6 +178,15 @@ public class DataFacade {
         DataCard dataCard = dataService.getDataCardByUuid(uuid);
         return mapper.map(dataCard,DataCardDTO.class);
     }
+
+    public List<MasterCity> getCities(){
+        return dataService.getCities();
+    }
+
+    public Boolean saveCity(String city){
+        return dataService.saveCity(city);
+    }
+
 
 
 

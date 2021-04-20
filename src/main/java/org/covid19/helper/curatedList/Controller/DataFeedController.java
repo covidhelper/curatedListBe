@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.covid19.helper.curatedList.Constants.ApplicationConstants;
 import org.covid19.helper.curatedList.DTO.*;
 
+import org.covid19.helper.curatedList.Entity.MasterCity;
 import org.covid19.helper.curatedList.Facade.DataFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -91,4 +92,20 @@ public class DataFeedController {
         result.put(ApplicationConstants.DATACARD,dataCardDTO);
         return new ResultDTO(result);
     }
+
+    @RequestMapping(value = "cities", method = RequestMethod.GET)
+    public ResultDTO getCitites(){
+        List<MasterCity> masterCities = dataFacade.getCities();
+        Map<String,Object> map = new HashMap<>();
+        map.put(ApplicationConstants.CITY,masterCities);
+        return new ResultDTO(map);
+    }
+
+    @RequestMapping(value = "city/{city}", method = RequestMethod.POST)
+    public ResultDTO saveCity(@PathVariable  String city){
+        Boolean status = dataFacade.saveCity(city);
+        return status? new ResultDTO(): new ResultDTO("City Already Added",400);
+    }
+
+
 }

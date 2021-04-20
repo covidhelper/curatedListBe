@@ -25,9 +25,10 @@ public class ApplicationConstants {
     public static final String DATACARD = "dataCard";
     public static final String DATACARDS = "dataCards";
     public static final String DATACARDEVENT = "dataCardEvent";
+    public static final String CITY = "city";
 
     public static enum RequestType {
-        PLASMA,OXYGEN,ICU,VENTILATOR,BED,REMDESIVIR,DR,TIFFIN,HOME_CARE;
+        PLASMA,OXYGEN,ICU,VENTILATOR,BED,REMDESIVIR,DR,TIFFIN,HOME_CARE,TOCILIZUMAB;
     }
 
     public static enum EventType{
