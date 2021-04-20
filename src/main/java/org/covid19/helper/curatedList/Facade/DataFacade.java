@@ -137,6 +137,8 @@ public class DataFacade {
         DataCard baseDataCard = mapper.map(structuredDTO,DataCard.class);
         baseDataCard.setUserId(userCookie.getCookie());
 
+        dumpCity(baseDataCard);
+
         List<DataCard> dataCards = new ArrayList<>();
 
         for(ContactDTO contactDTO : contacts){
@@ -185,6 +187,14 @@ public class DataFacade {
 
     public Boolean saveCity(String city){
         return dataService.saveCity(city);
+    }
+
+    private void dumpCity(DataCard dataCard){
+        if(dataCard.getNewCity()!=null){
+            saveCity(dataCard.getNewCity());
+            dataCard.setCity(dataCard.getNewCity());
+        }
+
     }
 
 

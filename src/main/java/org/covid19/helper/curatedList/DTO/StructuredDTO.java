@@ -22,6 +22,8 @@ public class StructuredDTO {
 
     private String comment;
 
+    private String newCity;
+
     private List<ContactDTO> contacts;
 
     private Boolean isGiver;

@@ -66,6 +66,9 @@ public class DataCard {
     @Transient
     private Boolean isSave;
 
+    @Transient
+    private String newCity;
+
     public void setUid(){
         this.uid = this.city + "_"  +this.state
                 + "_" + this.requestType.name()
