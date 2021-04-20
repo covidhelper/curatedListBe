@@ -190,7 +190,7 @@ public class DataFacade {
     }
 
     private void dumpCity(DataCard dataCard){
-        if(dataCard.getNewCity()!=null){
+        if(dataCard.getNewCity()!=null && dataCard.getNewCity() != ""){
             saveCity(dataCard.getNewCity());
             dataCard.setCity(dataCard.getNewCity());
         }
