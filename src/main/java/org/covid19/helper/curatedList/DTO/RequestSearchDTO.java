@@ -31,27 +31,26 @@ public class RequestSearchDTO {
     public String getSearchString() {
         if (this.isSeeker == null
                 && this.city == null
-                && this.state == null
                 && this.requestType == null
                 && this.q == null) {
             return "";
         }
         String q = " where ";
         if (this.isSeeker != null) {
-                q = " is_seeker = " + this.isSeeker + " and";
+                q = q+  " is_giver = " + !this.isSeeker + " and";
         }
-        if(this.city != null){
-            q = " city = " + this.city + " and";
+        if(this.city != null && !"".equals(this.city)){
+            q = q+" city = '" + this.city + "' and";
         }
-        if(this.state != null){
-            q = " state = " + this.state + " and";
+//        if(this.state != null ){
+//            q = q+ " state = '" + this.state + "' and";
+//        }
+        if(this.requestType != null && !"".equals(this.requestType)){
+            q = q+ " request_type = '" + this.requestType + "' and";
         }
-        if(this.requestType != null){
-            q = " request_type " + this.requestType + " and";
-        }
-        if(this.q != null){
-            q = "( name like '%" +this.q +"%' or phone like '%" + this.q +
-                    "%' + address like '%" + this.q + "%' and";
+        if(this.q != null && !"".equals(this.q)){
+            q = q+ "( name like '%" +this.q +"%' or phone like '%" + this.q +
+                    "%' or address like '%" + this.q + "%' ) and";
         }
        return q.substring(0,q.length()-4);
     }

@@ -1,6 +1,8 @@
 package org.covid19.helper.curatedList.Service;
 
 
+import org.covid19.helper.curatedList.DTO.RequestSearchDTO;
+import org.covid19.helper.curatedList.Dao.DataExtractorDao;
 import org.covid19.helper.curatedList.Entity.DataCard;
 import org.covid19.helper.curatedList.Entity.DataCardEvent;
 import org.covid19.helper.curatedList.Entity.MasterCity;
@@ -29,8 +31,8 @@ public class DataService {
     @Autowired
     MasterCityRepository masterCityRepository;
 
-   // @Autowired
-   // DataExtractorDao dataExtractorDao;
+    @Autowired
+    DataExtractorDao dataExtractorDao;
 
     public void saveUnstructuredFileData(UnstructuredData unstructuredData) {
         udr.save(unstructuredData);
@@ -62,10 +64,9 @@ public class DataService {
         return dataCards.get(0);
     }
 
-    public List<DataCard> getDataCards() {
-        // dataExtractorDao.getCards(r)
-
-        return dataCardRepository.findAllByOrderByRatingDesc();
+    public List<DataCard> getDataCards(RequestSearchDTO requestSearchDTO) {
+        return dataExtractorDao.getCards(requestSearchDTO);
+ //        return dataCardRepository.findAllByOrderByRatingDesc();
     }
 
     public Boolean deleteCard(DataCard dataCard){

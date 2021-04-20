@@ -159,7 +159,7 @@ public class DataFacade {
     }
 
     public List<DataCardDTO> getDataCards(RequestSearchDTO requestSearchDTO){
-        List<DataCard> dataCards = dataService.getDataCards();
+        List<DataCard> dataCards = dataService.getDataCards(requestSearchDTO);
         List<DataCardDTO> dataCardList = new ArrayList<>();
         for(DataCard dataCard: dataCards){
             dataCardList.add(mapper.map(dataCard,DataCardDTO.class));
