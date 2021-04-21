@@ -3,6 +3,7 @@ package org.covid19.helper.curatedList.DTO;
 import lombok.Data;
 import org.covid19.helper.curatedList.Constants.ApplicationConstants;
 
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -27,5 +28,7 @@ public class StructuredDTO {
     private List<ContactDTO> contacts;
 
     private Boolean isGiver;
+
+    public Date createdDate;
 
 }
