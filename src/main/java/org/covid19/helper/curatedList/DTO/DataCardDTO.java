@@ -43,4 +43,6 @@ public class DataCardDTO {
     private Double rating = 0.0;
 
     private Integer totalCount = 0;
+
+    public Date createdDate;
 }

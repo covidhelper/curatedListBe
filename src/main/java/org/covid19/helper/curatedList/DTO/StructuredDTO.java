@@ -29,6 +29,6 @@ public class StructuredDTO {
 
     private Boolean isGiver;
 
-    public Date createdDate;
+
 
 }
